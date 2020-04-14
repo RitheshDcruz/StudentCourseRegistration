@@ -17,8 +17,13 @@ import ShowCoursesStudentPage from "../course/ShowCoursesStudentPage";
 
 import EditCourse from "../course/EditCourse";
 import ShowCoursesPage from "../course/ShowCoursesPage";
+
+import EditBlock from "../block/EditBlock";
+import ViewAllBlocksPage from "../block/ViewAllBlocksPage";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ShowBlockPage from "../block/ShowBlockPage";
 
 function App() {
   return (
@@ -35,11 +40,18 @@ function App() {
             path="/showcoursesstudent/:courseid"
             component={ShowCoursesStudentPage}
           />
+          <Route
+            path="/showblocksdetails/:blockid"
+            component={ShowBlockPage}
+          />
 
           <Route path="/viewallcourses" component={ViewAllCoursesPage} />
           <Route path="/editcourse/:courseid" component={EditCourse} />
           <Route path="/editstudent/:studentid" component={EditStudent} />
           <Route path="/showcourses/:studentid" component={ShowCoursesPage} />
+
+          <Route path="/viewallblocks" component={ViewAllBlocksPage} />
+          <Route path="/editblock/:blockid" component={EditBlock} />
           <Route component={PageNotFound} />
         </Switch>
         <ToastContainer autoClose={3000} hideProgressBar />

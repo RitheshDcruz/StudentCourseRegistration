@@ -1,4 +1,5 @@
 export default {
   courses: [],
-  students: []
+  students: [],
+  blocks:[]
 };

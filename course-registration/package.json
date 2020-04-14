@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "starboth": "run-p start:dev start:api",
+    "startboth": "run-p start:dev start:api",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js --port 3004",
     "start:api": "nodemon api/server.js",
     "start": "react-scripts start",

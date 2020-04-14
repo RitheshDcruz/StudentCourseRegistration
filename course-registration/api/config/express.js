@@ -59,6 +59,7 @@ module.exports = function() {
 
   require("../app/routes/students.server.routes.js")(app);
   require("../app/routes/courses.server.routes.js")(app);
+  require("../app/routes/Block.server.routes.js")(app);
 
   app.use(function(err, req, res, next) {
     console.error(err.stack);

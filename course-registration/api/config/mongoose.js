@@ -9,6 +9,8 @@ module.exports = function() {
 
   require("../app/models/student.server.model");
   require("../app/models/course.server.model");
+  require("../app/models/block.server.model");
+
 
   var db1 = mongoose.connection;
   db1.on("error", console.log.bind(console, "connection error"));

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { getSignOut } from "../../api/authApi";
 import CreateCourse from "./CreateCourse";
+import CreateBlock from "./CreateBlock";
 import ShowStudentCourses from "./ShowStudentCourses";
 import { withRouter } from "react-router-dom";
 
@@ -15,6 +16,8 @@ function Main(props) {
   //const [data, setData] = useState();
   //
   const [course, setCourse] = useState("");
+  const [block, setBlock] = useState("");
+  const [showblock, setShowblock] = useState("");
   const [showcourse, setShowcourse] = useState("");
   // called when user clicks on Logout button
   // to clear the cookie and set the screen state variable
@@ -56,6 +59,17 @@ function Main(props) {
     setCourse("");
     setShowcourse("y");
   };
+
+  const createBlock = () => {
+    console.log("in createcourse");
+    setBlock("y");
+    setShowblock("");
+  };
+  const ShowAllBlocks = () => {
+    console.log("in ShowAllCourses");
+    setBlock("");
+    setShowblock("y");
+  };
   //
   return (
     <div className="App">
@@ -80,6 +94,27 @@ function Main(props) {
           userid={userid}
           ShowAllCourses={ShowAllCourses}
           setShowcourse={setShowcourse}
+        />
+      )}
+      {block !== "y" ? (
+        <div>
+          <button onClick={ShowAllBlocks}>Show All BLocks </button>
+          <button onClick={createBlock}>Create Block</button>
+        </div>
+      ) : (
+        <CreateBlock
+          screen={screen}
+          setScreen={setScreen}
+          setBlock={setBlock}
+          userid={userid}
+        />
+      )}
+      
+      {showblock === "y" && (
+        <ShowStudentCourses
+          userid={userid}
+          ShowAllBlocks={ShowAllBlocks}
+          setShowblock={setShowblock}
         />
       )}
     </div>

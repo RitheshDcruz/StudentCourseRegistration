@@ -24,6 +24,10 @@ const Header = () => {
       <NavLink to="/viewallcourses" activeStyle={activeStyle}>
         View all courses
       </NavLink>
+      {" | "}
+      <NavLink to="/viewallblocks" activeStyle={activeStyle}>
+        View all blocks
+      </NavLink>
     </nav>
   );
 };
