@@ -9,17 +9,16 @@ function ShowBlocksPage(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(props.match.params.blockid);
-      console.log("##################################");
       getBlock(props.match.params.blockid)
         .then(response => {
           if (response.data !== undefined) {
-            setBlocks(response.data.blocks);
-            console.log("saved " + JSON.stringify(response.data));
+            setBlocks(response.data);
+            console.log("saved..........." + JSON.stringify(response.data));
           }
+          console.log("saved " + JSON.stringify(response));
         })
         .catch(error => {
-          console.log(error);
+          console.log("-------------------------"+error);
         });
     };
 
@@ -29,15 +28,17 @@ function ShowBlocksPage(props) {
   return (
     <div>
       <ListGroup>
-        {blocks.map((item, idx) => (
-          <ListGroup.Item key={item._id} action>
-            Block Name : {item.blockName}
-            {"    "}
-            || Block Stream : {item.blockStream}
-            {"    "}
+       
+          <ListGroup.Item key={blocks._id} action>
+            Block Name : {blocks.blockName}
+            {"\n    "}
+            <br></br>
+            Block Stream : {blocks.blockStream}
+            {"\n    "}
+            <br></br>
             Block Courses: ...
           </ListGroup.Item>
-        ))}
+       
       </ListGroup>
     </div>
   );

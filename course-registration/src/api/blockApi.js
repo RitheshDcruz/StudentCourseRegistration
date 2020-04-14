@@ -23,7 +23,7 @@ export function getBlock(id) {
   return axios
     .get(blockUrl + "/" + id)
     .then(response => {
-      console.log("response in axios " + JSON.stringify(response.data));
+      console.log("response in axios " + JSON.stringify(response));
 
       return response;
     })

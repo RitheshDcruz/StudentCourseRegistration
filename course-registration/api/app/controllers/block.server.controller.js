@@ -7,18 +7,18 @@ const mongoose = require("mongoose");
 
 exports.getAllBlocks = function(req, res, next) {
   //find the Blocks then its comments using Promise mechanism of Mongoose
-  Block.find({}, (err, courses) => {
+  Block.find({}, (err, blocks) => {
     if (err) {
       return getErrorMessage(err);
     } else {
-      res.status(200).json(courses);
+      res.status(200).json(blocks);
     }
   });
 };
 
 exports.getBlockById = function(req, res, next) {
-  console.log(req.params.courseid)
-  Block.findOne({ _id: req.params.courseid }, (err, course) => {
+  console.log(req.params.blockid)
+  Block.findOne({ _id: req.params.blockid }, (err, course) => {
     if (err) {
       return getErrorMessage(err);
     } else {
@@ -29,10 +29,10 @@ exports.getBlockById = function(req, res, next) {
 };
 
 exports.deleteBlock = function(req, res, next) {
-  const rawcourseid = req.path.split("/")[2];
+  const rawblockid = req.path.split("/")[2];
   //find the student then its comments using Promise mechanism of Mongoose
   Block.remove(
-    { _id: mongoose.Types.ObjectId(rawcourseid) },
+    { _id: mongoose.Types.ObjectId(rawblockid) },
     (err, block) => {
       if (err) {
         return getErrorMessage(err);
